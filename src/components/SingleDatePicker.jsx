@@ -53,6 +53,7 @@ const defaultProps = {
   numberOfMonths: 2,
   keepOpenOnDateSelect: false,
   reopenPickerOnClearDate: false,
+  renderCalendarCaption: null,
 
   // navigation related props
   navPrev: null,
@@ -294,6 +295,7 @@ export default class SingleDatePicker extends React.Component {
       withFullScreenPortal,
       focused,
       renderDay,
+      renderCalendarCaption,
       date,
       initialVisibleMonth,
     } = this.props;
@@ -337,6 +339,7 @@ export default class SingleDatePicker extends React.Component {
           navPrev={navPrev}
           navNext={navNext}
           renderDay={renderDay}
+          renderCalendarCaption={renderCalendarCaption}
         />
 
         {withFullScreenPortal &&

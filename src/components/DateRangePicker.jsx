@@ -59,6 +59,7 @@ const defaultProps = {
   numberOfMonths: 2,
   keepOpenOnDateSelect: false,
   reopenPickerOnClearDates: false,
+  renderCalendarCaption: null,
 
   // navigation related props
   navPrev: null,
@@ -222,6 +223,7 @@ export default class DateRangePicker extends React.Component {
       minimumNights,
       keepOpenOnDateSelect,
       renderDay,
+      renderCalendarCaption,
       initialVisibleMonth,
     } = this.props;
     const { dayPickerContainerStyles } = this.state;
@@ -262,6 +264,7 @@ export default class DateRangePicker extends React.Component {
           isDayBlocked={isDayBlocked}
           keepOpenOnDateSelect={keepOpenOnDateSelect}
           renderDay={renderDay}
+          renderCalendarCaption={renderCalendarCaption}
         />
 
         {withFullScreenPortal &&
