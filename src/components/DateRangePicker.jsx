@@ -215,6 +215,7 @@ export default class DateRangePicker extends React.Component {
       onNextMonthClick,
       onDatesChange,
       onFocusChange,
+      onDayHover,
       withPortal,
       withFullScreenPortal,
       enableOutsideDays,
@@ -224,6 +225,8 @@ export default class DateRangePicker extends React.Component {
       minimumNights,
       keepOpenOnDateSelect,
       renderDay,
+      dimensions,
+      modifiers,
       renderCalendarCaption,
       initialVisibleMonth,
     } = this.props;
@@ -250,6 +253,7 @@ export default class DateRangePicker extends React.Component {
           onNextMonthClick={onNextMonthClick}
           onDatesChange={onDatesChange}
           onFocusChange={onFocusChange}
+          onDayHover={onDayHover}
           focusedInput={focusedInput}
           startDate={startDate}
           endDate={endDate}
@@ -265,6 +269,8 @@ export default class DateRangePicker extends React.Component {
           isDayBlocked={isDayBlocked}
           keepOpenOnDateSelect={keepOpenOnDateSelect}
           renderDay={renderDay}
+          dimensions={dimensions}
+          modifiers={modifiers}
           renderCalendarCaption={renderCalendarCaption}
         />
 

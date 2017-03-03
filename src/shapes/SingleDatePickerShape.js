@@ -11,6 +11,7 @@ export default {
 
   focused: PropTypes.bool,
   onFocusChange: PropTypes.func.isRequired,
+  onDayHover: PropTypes.func,
 
   // input related props
   id: PropTypes.string.isRequired,
@@ -23,6 +24,7 @@ export default {
 
   // calendar presentation and interaction related props
   orientation: OrientationShape,
+  dimensions: PropTypes.object,
   anchorDirection: anchorDirectionShape,
   horizontalMargin: PropTypes.number,
   withPortal: PropTypes.bool,
@@ -41,6 +43,7 @@ export default {
 
   // day presentation and interaction related props
   renderDay: PropTypes.func,
+  modifiers: PropTypes.object,
   enableOutsideDays: PropTypes.bool,
   isDayBlocked: PropTypes.func,
   isOutsideRange: PropTypes.func,

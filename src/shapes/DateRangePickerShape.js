@@ -13,6 +13,7 @@ export default {
 
   focusedInput: FocusedInputShape,
   onFocusChange: PropTypes.func.isRequired,
+  onDayHover: PropTypes.func,
 
   // input related props
   startDateId: PropTypes.string.isRequired,
@@ -30,6 +31,7 @@ export default {
 
   // calendar presentation and interaction related props
   orientation: OrientationShape,
+  dimensions: PropTypes.object,
   anchorDirection: anchorDirectionShape,
   horizontalMargin: PropTypes.number,
   withPortal: PropTypes.bool,
@@ -48,6 +50,7 @@ export default {
 
   // day presentation and interaction related props
   renderDay: PropTypes.func,
+  modifiers: PropTypes.object,
   minimumNights: PropTypes.number,
   enableOutsideDays: PropTypes.bool,
   isDayBlocked: PropTypes.func,

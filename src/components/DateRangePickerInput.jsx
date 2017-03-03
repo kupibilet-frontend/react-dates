@@ -25,9 +25,9 @@ const propTypes = forbidExtraProps({
   onEndDateTab: PropTypes.func,
   onClearDates: PropTypes.func,
 
-  startDate: PropTypes.oneOf([PropTypes.string, PropTypes.node]),
+  startDate: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   startDateValue: PropTypes.string,
-  endDate: PropTypes.oneOf([PropTypes.string, PropTypes.node]),
+  endDate: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   endDateValue: PropTypes.string,
 
   isStartDateFocused: PropTypes.bool,

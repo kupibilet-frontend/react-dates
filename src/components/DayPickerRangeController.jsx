@@ -27,17 +27,20 @@ const propTypes = forbidExtraProps({
 
   focusedInput: FocusedInputShape,
   onFocusChange: PropTypes.func,
+  onDayHover: PropTypes.func,
 
   keepOpenOnDateSelect: PropTypes.bool,
   minimumNights: PropTypes.number,
   isOutsideRange: PropTypes.func,
   isDayBlocked: PropTypes.func,
   isDayHighlighted: PropTypes.func,
+  modifiers: PropTypes.object,
 
   // DayPicker props
   enableOutsideDays: PropTypes.bool,
   numberOfMonths: PropTypes.number,
   orientation: ScrollableOrientationShape,
+  dimensions: PropTypes.object,
   withPortal: PropTypes.bool,
   initialVisibleMonth: PropTypes.func,
 
@@ -102,7 +105,6 @@ export default class DayPickerRangeController extends React.Component {
 
     this.onDayClick = this.onDayClick.bind(this);
     this.onDayMouseEnter = this.onDayMouseEnter.bind(this);
-    this.onDayMouseLeave = this.onDayMouseLeave.bind(this);
   }
 
   componentWillUpdate() {
@@ -145,18 +147,11 @@ export default class DayPickerRangeController extends React.Component {
 
   onDayMouseEnter(day) {
     if (this.isTouchDevice) return;
+    const { onDayHover, isOutsideRange } = this.props;
 
-    this.setState({
-      hoverDate: day,
-    });
-  }
-
-  onDayMouseLeave() {
-    if (this.isTouchDevice) return;
-
-    this.setState({
-      hoverDate: null,
-    });
+    if (onDayHover && !isOutsideRange(day)) {
+      onDayHover(day);
+    }
   }
 
   doesNotMeetMinimumNights(day) {
@@ -179,26 +174,6 @@ export default class DayPickerRangeController extends React.Component {
 
   isEndDate(day) {
     return isSameDay(day, this.props.endDate);
-  }
-
-  isHovered(day) {
-    return isSameDay(day, this.state.hoverDate);
-  }
-
-  isInHoveredSpan(day) {
-    const { startDate, endDate } = this.props;
-    const { hoverDate } = this.state;
-
-    const isForwardRange = !!startDate && !endDate &&
-      (day.isBetween(startDate, hoverDate) ||
-       isSameDay(hoverDate, day));
-    const isBackwardRange = !!endDate && !startDate &&
-      (day.isBetween(hoverDate, endDate) ||
-       isSameDay(hoverDate, day));
-
-    const isValidDayHovered = hoverDate && !this.isBlocked(hoverDate);
-
-    return (isForwardRange || isBackwardRange) && isValidDayHovered;
   }
 
   isInSelectedSpan(day) {
@@ -231,8 +206,10 @@ export default class DayPickerRangeController extends React.Component {
       numberOfMonths,
       orientation,
       monthFormat,
+      modifiers,
       navPrev,
       navNext,
+      dimensions,
       onOutsideClick,
       onPrevMonthClick,
       onNextMonthClick,
@@ -244,7 +221,8 @@ export default class DayPickerRangeController extends React.Component {
       renderCalendarCaption,
     } = this.props;
 
-    const modifiers = {
+    const extendedModifiers = {
+      ...modifiers,
       today: day => this.isToday(day),
       blocked: day => this.isBlocked(day),
       'blocked-calendar': day => isDayBlocked(day),
@@ -252,12 +230,7 @@ export default class DayPickerRangeController extends React.Component {
       'blocked-minimum-nights': day => this.doesNotMeetMinimumNights(day),
       'highlighted-calendar': day => isDayHighlighted(day),
       valid: day => !this.isBlocked(day),
-      // before anything has been set or after both are set
-      hovered: day => this.isHovered(day),
 
-      // while start date has been set, but end date has not been
-      'hovered-span': day => this.isInHoveredSpan(day),
-      'after-hovered-start': day => this.isDayAfterHoveredStartDate(day),
       'last-in-range': day => this.isLastInRange(day),
 
       // once a start date and end date have been set
@@ -271,8 +244,10 @@ export default class DayPickerRangeController extends React.Component {
         ref={(ref) => { this.dayPicker = ref; }}
         orientation={orientation}
         enableOutsideDays={enableOutsideDays}
-        modifiers={modifiers}
+        modifiers={extendedModifiers}
+        dimensions={dimensions}
         numberOfMonths={numberOfMonths}
+        isOutsideRange={isOutsideRange}
         onDayClick={this.onDayClick}
         onDayMouseEnter={this.onDayMouseEnter}
         onDayMouseLeave={this.onDayMouseLeave}

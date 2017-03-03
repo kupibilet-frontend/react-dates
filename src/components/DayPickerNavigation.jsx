@@ -16,6 +16,8 @@ import {
 const propTypes = forbidExtraProps({
   navPrev: PropTypes.node,
   navNext: PropTypes.node,
+  canNavPrev: PropTypes.bool,
+  canNavNext: PropTypes.bool,
   orientation: ScrollableOrientationShape,
 
   onPrevMonthClick: PropTypes.func,
@@ -35,6 +37,8 @@ export default function DayPickerNavigation(props) {
   const {
     navPrev,
     navNext,
+    canNavPrev,
+    canNavNext,
     onPrevMonthClick,
     onNextMonthClick,
     orientation,
@@ -63,9 +67,11 @@ export default function DayPickerNavigation(props) {
   });
   const prevClassNames = cx('DayPickerNavigation__prev', {
     'DayPickerNavigation__prev--default': isDefaultNavPrev,
+    'DayPickerNavigation__prev--disabled': !canNavPrev,
   });
   const nextClassNames = cx('DayPickerNavigation__next', {
     'DayPickerNavigation__next--default': isDefaultNavNext,
+    'DayPickerNavigation__next--disabled': !canNavNext,
   });
 
   return (
@@ -73,7 +79,7 @@ export default function DayPickerNavigation(props) {
       {!isVerticalScrollable &&
         <span
           className={prevClassNames}
-          onClick={onPrevMonthClick}
+          onClick={canNavPrev && onPrevMonthClick}
         >
           {navPrevIcon}
         </span>
@@ -81,7 +87,7 @@ export default function DayPickerNavigation(props) {
 
       <span
         className={nextClassNames}
-        onClick={onNextMonthClick}
+        onClick={canNavNext && onNextMonthClick}
       >
         {navNextIcon}
       </span>
