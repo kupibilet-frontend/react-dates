@@ -38,6 +38,7 @@ export default {
 
   // calendar presentation and interaction related props
   renderMonth: PropTypes.func,
+  renderInputText: PropTypes.func,
   orientation: OrientationShape,
   anchorDirection: anchorDirectionShape,
   horizontalMargin: PropTypes.number,
