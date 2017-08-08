@@ -70,7 +70,7 @@ const propTypes = forbidExtraProps({
   renderDay: PropTypes.func,
   onDayClick: PropTypes.func,
   onDayMouseEnter: PropTypes.func,
-  onDayMouseLeave: PropTypes.func,
+  onCalendarMouseLeave: PropTypes.func,
 
   // accessibility props
   isFocused: PropTypes.bool,
@@ -113,7 +113,7 @@ export const defaultProps = {
   renderDay: null,
   onDayClick() {},
   onDayMouseEnter() {},
-  onDayMouseLeave() {},
+  onCalendarMouseLeave: null,
 
   // accessibility props
   isFocused: false,
@@ -732,7 +732,7 @@ export default class DayPicker extends React.Component {
       withPortal,
       onDayClick,
       onDayMouseEnter,
-      onDayMouseLeave,
+      onCalendarMouseLeave,
       firstDayOfWeek,
       renderMonth,
       renderDay,
@@ -845,7 +845,7 @@ export default class DayPicker extends React.Component {
                 numberOfMonths={numberOfMonths * scrollableMonthMultiple}
                 onDayClick={onDayClick}
                 onDayMouseEnter={onDayMouseEnter}
-                onDayMouseLeave={onDayMouseLeave}
+                onCalendarMouseLeave={onCalendarMouseLeave}
                 renderMonth={renderMonth}
                 renderDay={renderDay}
                 onMonthTransitionEnd={this.updateStateAfterMonthTransition}
