@@ -3,8 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import shallowCompare from 'react-addons-shallow-compare';
-import momentPropTypes from 'react-moment-proptypes';
-import { forbidExtraProps, nonNegativeInteger } from 'airbnb-prop-types';
 import moment from 'moment';
 import cx from 'classnames';
 
@@ -27,13 +25,13 @@ import {
   DAY_SIZE,
 } from '../../constants';
 
-const propTypes = forbidExtraProps({
-  month: momentPropTypes.momentObj,
+const propTypes = {
+  month: PropTypes.object,
   isVisible: PropTypes.bool,
   enableOutsideDays: PropTypes.bool,
   modifiers: PropTypes.object,
   orientation: ScrollableOrientationShape,
-  daySize: nonNegativeInteger,
+  daySize: PropTypes.number,
   onDayClick: PropTypes.func,
   onDayMouseEnter: PropTypes.func,
   onDayMouseLeave: PropTypes.func,
@@ -41,13 +39,13 @@ const propTypes = forbidExtraProps({
   renderDay: PropTypes.func,
   firstDayOfWeek: DayOfWeekShape,
 
-  focusedDate: momentPropTypes.momentObj, // indicates focusable day
+  focusedDate: PropTypes.object, // indicates focusable day
   isFocused: PropTypes.bool, // indicates whether or not to move focus to focusable day
 
   // i18n
   monthFormat: PropTypes.string,
   phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
-});
+};
 
 const defaultProps = {
   month: moment(),

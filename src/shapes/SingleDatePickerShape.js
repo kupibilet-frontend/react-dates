@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-import momentPropTypes from 'react-moment-proptypes';
-import { nonNegativeInteger } from 'airbnb-prop-types';
 
 import { SingleDatePickerPhrases } from '../defaultPhrases';
 import getPhrasePropTypes from '../utils/getPhrasePropTypes';
@@ -13,7 +11,7 @@ import DayOfWeekShape from '../shapes/DayOfWeekShape';
 
 export default {
   // required props for a functional interactive SingleDatePicker
-  date: momentPropTypes.momentObj,
+  date: PropTypes.number,
   onDateChange: PropTypes.func.isRequired,
 
   focused: PropTypes.bool,
@@ -47,7 +45,7 @@ export default {
   reopenPickerOnClearDate: PropTypes.bool,
   renderCalendarInfo: PropTypes.func,
   hideKeyboardShortcutsPanel: PropTypes.bool,
-  daySize: nonNegativeInteger,
+  daySize: PropTypes.number,
   isRTL: PropTypes.bool,
 
   // navigation related props

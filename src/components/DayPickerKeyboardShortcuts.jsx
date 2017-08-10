@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { forbidExtraProps } from 'airbnb-prop-types';
 import cx from 'classnames';
 
 import { DayPickerKeyboardShortcutsPhrases } from '../defaultPhrases';

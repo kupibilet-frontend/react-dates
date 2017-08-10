@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import cx from 'classnames';
 
 import { SingleDatePickerInputPhrases } from '../defaultPhrases';
@@ -43,7 +42,7 @@ const propTypes = forbidExtraProps({
 
   // i18n
   phrases: PropTypes.shape(getPhrasePropTypes(SingleDatePickerInputPhrases)),
-});
+};
 
 const defaultProps = {
   placeholder: 'Select Date',
