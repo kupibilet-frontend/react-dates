@@ -663,6 +663,7 @@ export default class DayPickerRangeController extends React.Component {
       navPrev,
       navNext,
       onOutsideClick,
+      isOutsideRange,
       withPortal,
       enableOutsideDays,
       firstDayOfWeek,
@@ -692,6 +693,7 @@ export default class DayPickerRangeController extends React.Component {
         onPrevMonthClick={this.onPrevMonthClick}
         onNextMonthClick={this.onNextMonthClick}
         onMultiplyScrollableMonths={this.onMultiplyScrollableMonths}
+        isOutsideRange={isOutsideRange}
         monthFormat={monthFormat}
         renderMonth={renderMonth}
         withPortal={withPortal}
