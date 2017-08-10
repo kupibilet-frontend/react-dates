@@ -7,8 +7,8 @@ import isTouchDevice from 'is-touch-device';
 
 const propTypes = forbidExtraProps({
   id: PropTypes.string.isRequired,
-  placeholder: PropTypes.string, // also used as label
-  displayValue: PropTypes.string,
+  placeholder: PropTypes.node,
+  displayValue: PropTypes.node,
   inputValue: PropTypes.string,
   screenReaderMessage: PropTypes.string,
   focused: PropTypes.bool,

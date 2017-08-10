@@ -22,12 +22,12 @@ import { START_DATE, END_DATE } from '../../constants';
 const propTypes = forbidExtraProps({
   startDate: momentPropTypes.momentObj,
   startDateId: PropTypes.string,
-  startDatePlaceholderText: PropTypes.string,
+  startDatePlaceholderText: PropTypes.node,
   isStartDateFocused: PropTypes.bool,
 
   endDate: momentPropTypes.momentObj,
   endDateId: PropTypes.string,
-  endDatePlaceholderText: PropTypes.string,
+  endDatePlaceholderText: PropTypes.node,
   isEndDateFocused: PropTypes.bool,
 
   screenReaderMessage: PropTypes.string,
