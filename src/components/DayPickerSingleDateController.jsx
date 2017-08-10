@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import momentPropTypes from 'react-moment-proptypes';
-import { forbidExtraProps, nonNegativeInteger } from 'airbnb-prop-types';
 import moment from 'moment';
 import values from 'object.values';
 import isTouchDevice from 'is-touch-device';
@@ -29,8 +27,8 @@ import {
 
 import DayPicker from './DayPicker';
 
-const propTypes = forbidExtraProps({
-  date: momentPropTypes.momentObj,
+const propTypes = {
+  date: PropTypes.object,
   onDateChange: PropTypes.func,
 
   focused: PropTypes.bool,
@@ -52,7 +50,7 @@ const propTypes = forbidExtraProps({
   initialVisibleMonth: PropTypes.func,
   firstDayOfWeek: DayOfWeekShape,
   hideKeyboardShortcutsPanel: PropTypes.bool,
-  daySize: nonNegativeInteger,
+  daySize: PropTypes.number,
 
   navPrev: PropTypes.node,
   navNext: PropTypes.node,
@@ -73,7 +71,7 @@ const propTypes = forbidExtraProps({
   phrases: PropTypes.shape(getPhrasePropTypes(DayPickerPhrases)),
 
   isRTL: PropTypes.bool,
-});
+};
 
 const defaultProps = {
   date: undefined, // TODO: use null

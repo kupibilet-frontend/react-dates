@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { forbidExtraProps } from 'airbnb-prop-types';
 import cx from 'classnames';
 
 import { DayPickerNavigationPhrases } from '../defaultPhrases';
@@ -17,7 +16,7 @@ import {
   VERTICAL_SCROLLABLE,
 } from '../../constants';
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   navPrev: PropTypes.node,
   navNext: PropTypes.node,
   canNavPrev: PropTypes.bool,
@@ -31,7 +30,7 @@ const propTypes = forbidExtraProps({
   phrases: PropTypes.shape(getPhrasePropTypes(DayPickerNavigationPhrases)),
 
   isRTL: PropTypes.bool,
-});
+};
 
 const defaultProps = {
   navPrev: null,

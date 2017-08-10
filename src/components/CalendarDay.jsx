@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import shallowCompare from 'react-addons-shallow-compare';
-import momentPropTypes from 'react-moment-proptypes';
-import { forbidExtraProps, nonNegativeInteger } from 'airbnb-prop-types';
 import moment from 'moment';
 import cx from 'classnames';
 
@@ -12,9 +10,9 @@ import getPhrase from '../utils/getPhrase';
 
 import { BLOCKED_MODIFIER, DAY_SIZE } from '../../constants';
 
-const propTypes = forbidExtraProps({
-  day: momentPropTypes.momentObj,
-  daySize: nonNegativeInteger,
+const propTypes = {
+  day: PropTypes.object,
+  daySize: PropTypes.number,
   isOutsideDay: PropTypes.bool,
   modifiers: PropTypes.instanceOf(Set),
   isFocused: PropTypes.bool,
@@ -26,7 +24,7 @@ const propTypes = forbidExtraProps({
 
   // internationalization
   phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
-});
+};
 
 const defaultProps = {
   day: moment(),
