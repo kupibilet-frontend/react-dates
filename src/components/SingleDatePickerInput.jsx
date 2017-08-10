@@ -6,8 +6,6 @@ import { SingleDatePickerInputPhrases } from '../defaultPhrases';
 import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 
 import DateInput from './DateInput';
-import CloseButton from '../svg/close.svg';
-import CalendarIcon from '../svg/calendar.svg';
 
 const propTypes = {
   id: PropTypes.string.isRequired,
@@ -116,8 +114,8 @@ export default class SingleDatePickerInput extends React.Component {
       isRTL,
     } = this.props;
 
-    const inputIcon = customInputIcon || (<CalendarIcon />);
-    const closeIcon = customCloseIcon || (<CloseButton />);
+    const inputIcon = customInputIcon || null;
+    const closeIcon = customCloseIcon || null;
     const screenReaderText = screenReaderMessage || phrases.keyboardNavigationInstructions;
 
     return (

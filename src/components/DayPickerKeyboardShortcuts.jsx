@@ -6,8 +6,6 @@ import cx from 'classnames';
 import { DayPickerKeyboardShortcutsPhrases } from '../defaultPhrases';
 import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 
-import CloseButton from '../svg/close.svg';
-
 export const TOP_LEFT = 'top-left';
 export const TOP_RIGHT = 'top-right';
 export const BOTTOM_RIGHT = 'bottom-right';
@@ -158,7 +156,7 @@ export default function DayPickerKeyboardShortcuts({
               }
             }}
           >
-            <CloseButton />
+            X
           </button>
 
           <ul className="DayPickerKeyboardShortcuts__list">
