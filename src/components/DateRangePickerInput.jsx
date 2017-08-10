@@ -7,12 +7,6 @@ import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 import openDirectionShape from '../shapes/OpenDirectionShape';
 
 import DateInput from './DateInput';
-import IconPositionShape from '../shapes/IconPositionShape';
-
-import RightArrow from '../svg/arrow-right.svg';
-import LeftArrow from '../svg/arrow-left.svg';
-import CloseButton from '../svg/close.svg';
-import CalendarIcon from '../svg/calendar.svg';
 
 import {
   START_DATE,
@@ -174,9 +168,9 @@ export default class DateRangePickerInput extends React.Component {
       isRTL,
     } = this.props;
 
-    const calendarIcon = customInputIcon || (<CalendarIcon />);
-    const arrowIcon = customArrowIcon || (isRTL ? <LeftArrow /> : <RightArrow />);
-    const closeIcon = customCloseIcon || (<CloseButton />);
+    const inputIcon = customInputIcon || null;
+    const arrowIcon = customArrowIcon || null;
+    const closeIcon = customCloseIcon || null;
     const screenReaderText = screenReaderMessage || phrases.keyboardNavigationInstructions;
     const inputIcon = (showDefaultInputIcon || customInputIcon !== null) && (
       <button

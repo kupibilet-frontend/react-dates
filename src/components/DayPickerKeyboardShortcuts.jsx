@@ -6,8 +6,6 @@ import cx from 'classnames';
 import { DayPickerKeyboardShortcutsPhrases } from '../defaultPhrases';
 import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 
-import CloseButton from '../svg/close.svg';
-
 export const TOP_LEFT = 'top-left';
 export const TOP_RIGHT = 'top-right';
 export const BOTTOM_RIGHT = 'bottom-right';
@@ -161,22 +159,22 @@ export default class DayPickerKeyboardShortcuts extends React.Component {
               {phrases.keyboardShortcuts}
             </div>
 
-            <button
-              className="DayPickerKeyboardShortcuts__close"
-              type="button"
-              aria-label={phrases.hideKeyboardShortcutsPanel}
-              onClick={closeKeyboardShortcutsPanel}
-              onKeyDown={(e) => {
-                // Because the close button is the only focusable element inside of the panel, this
-                // amount to a very basic focus trap. The user can exit the panel by "pressing" the
-                // close button or hitting escape
-                if (e.key === 'Tab') {
-                  e.preventDefault();
-                }
-              }}
-            >
-              <CloseButton />
-            </button>
+          <button
+            className="DayPickerKeyboardShortcuts__close"
+            type="button"
+            aria-label={phrases.hideKeyboardShortcutsPanel}
+            onClick={closeKeyboardShortcutsPanel}
+            onKeyDown={(e) => {
+              // Because the close button is the only focusable element inside of the panel, this
+              // amount to a very basic focus trap. The user can exit the panel by "pressing" the
+              // close button or hitting escape
+              if (e.key === 'Tab') {
+                e.preventDefault();
+              }
+            }}
+          >
+            X
+          </button>
 
             <ul className="DayPickerKeyboardShortcuts__list">
               {keyboardShortcuts.map(({ unicode, label, action }) => (
