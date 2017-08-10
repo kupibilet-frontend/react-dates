@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import values from 'object.values';
 import isTouchDevice from 'is-touch-device';
 
 import { DayPickerPhrases } from '../defaultPhrases';
@@ -225,7 +224,7 @@ export default class DayPickerSingleDateController extends React.Component {
     }
 
     if (didFocusChange || recomputePropModifiers) {
-      values(visibleDays).forEach((days) => {
+      Object.values(visibleDays).forEach((days) => {
         Object.keys(days).forEach((day) => {
           const momentObj = moment(day);
           if (this.isBlocked(momentObj)) {
