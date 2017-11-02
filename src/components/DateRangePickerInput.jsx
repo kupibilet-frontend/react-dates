@@ -47,8 +47,6 @@ const propTypes = {
   readOnly: PropTypes.bool,
   openDirection: openDirectionShape,
   showCaret: PropTypes.bool,
-  showDefaultInputIcon: PropTypes.bool,
-  inputIconPosition: IconPositionShape,
   customInputIcon: PropTypes.node,
   customArrowIcon: PropTypes.node,
   customCloseIcon: PropTypes.node,
@@ -158,7 +156,6 @@ export default class DateRangePickerInput extends React.Component {
       readOnly,
       openDirection,
       showCaret,
-      showDefaultInputIcon,
       inputIconPosition,
       customInputIcon,
       customArrowIcon,
@@ -172,17 +169,6 @@ export default class DateRangePickerInput extends React.Component {
     const arrowIcon = customArrowIcon || null;
     const closeIcon = customCloseIcon || null;
     const screenReaderText = screenReaderMessage || phrases.keyboardNavigationInstructions;
-    const inputIcon = (showDefaultInputIcon || customInputIcon !== null) && (
-      <button
-        type="button"
-        className="DateRangePickerInput__calendar-icon"
-        disabled={disabled}
-        aria-label={phrases.focusStartDate}
-        onClick={onArrowDown}
-      >
-        {calendarIcon}
-      </button>
-    );
 
     return (
       <div

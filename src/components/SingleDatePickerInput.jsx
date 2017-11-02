@@ -10,7 +10,7 @@ import DateInput from './DateInput';
 import openDirectionShape from '../shapes/OpenDirectionShape';
 import { ICON_BEFORE_POSITION, ICON_AFTER_POSITION, OPEN_DOWN } from '../../constants';
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   id: PropTypes.string.isRequired,
   placeholder: PropTypes.string, // also used as label
   displayValue: PropTypes.string,
@@ -25,8 +25,6 @@ const propTypes = forbidExtraProps({
   showCaret: PropTypes.bool,
   showClearDate: PropTypes.bool,
   customCloseIcon: PropTypes.node,
-  showDefaultInputIcon: PropTypes.bool,
-  inputIconPosition: IconPositionShape,
   customInputIcon: PropTypes.node,
   isRTL: PropTypes.bool,
   onChange: PropTypes.func,
@@ -108,7 +106,6 @@ export default class SingleDatePickerInput extends React.Component {
       openDirection,
       showCaret,
       showClearDate,
-      showDefaultInputIcon,
       inputIconPosition,
       phrases,
       onClearDate,
@@ -126,17 +123,6 @@ export default class SingleDatePickerInput extends React.Component {
     const inputIcon = customInputIcon || null;
     const closeIcon = customCloseIcon || null;
     const screenReaderText = screenReaderMessage || phrases.keyboardNavigationInstructions;
-    const inputIcon = (showDefaultInputIcon || customInputIcon !== null) && (
-      <button
-        type="button"
-        className="SingleDatePickerInput__calendar-icon"
-        disabled={disabled}
-        aria-label={phrases.focusStartDate}
-        onClick={onFocus}
-      >
-        {calendarIcon}
-      </button>
-    );
 
     return (
       <div

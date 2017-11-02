@@ -188,5 +188,5 @@ export default class DayPickerKeyboardShortcuts extends React.Component {
   }
 }
 
-DayPickerKeyboardShortcuts.propTypes = forbidExtraProps(propTypes);
+DayPickerKeyboardShortcuts.propTypes = propTypes;
 DayPickerKeyboardShortcuts.defaultProps = defaultProps;

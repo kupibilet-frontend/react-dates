@@ -28,9 +28,11 @@ const propTypes = {
   isRTL: PropTypes.bool,
 };
 
+const DefaultIcon = () => null;
+
 const defaultProps = {
-  navPrev: null,
-  navNext: null,
+  navPrev: <DefaultIcon />,
+  navNext: <DefaultIcon />,
   orientation: HORIZONTAL_ORIENTATION,
 
   onPrevMonthClick() {},
@@ -67,11 +69,11 @@ export default function DayPickerNavigation(props) {
   let isDefaultNavNext = false;
   if (!navPrevIcon) {
     isDefaultNavPrev = true;
-    navPrevIcon = null;
+    navPrevIcon = <DefaultIcon />;
   }
   if (!navNextIcon) {
     isDefaultNavNext = true;
-    navNextIcon = null;
+    navNextIcon = <DefaultIcon />;
   }
 
   const navClassNames = cx('DayPickerNavigation', {
