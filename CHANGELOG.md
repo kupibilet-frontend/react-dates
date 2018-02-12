@@ -1,6 +1,9 @@
 # Change Log
 
 ## 12.7.0
+- Сделали ребейз до 12.7.0
+
+## 12.7.0
 - [new] Some accessibility improvements and patches ([#715](https://github.com/airbnb/react-dates/pull/715))
 
 ## 12.6.0
