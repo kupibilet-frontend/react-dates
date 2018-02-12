@@ -12,6 +12,8 @@ import IconPositionShape from '../shapes/IconPositionShape';
 import openDirectionShape from '../shapes/OpenDirectionShape';
 import { ICON_BEFORE_POSITION, ICON_AFTER_POSITION, OPEN_DOWN } from '../../constants';
 
+const Null = () => null;
+
 const propTypes = forbidExtraProps({
   id: PropTypes.string.isRequired,
   placeholder: PropTypes.string, // also used as label
@@ -125,8 +127,8 @@ export default class SingleDatePickerInput extends React.Component {
       isRTL,
     } = this.props;
 
-    const inputIcon = customInputIcon || <Null/>;
-    const closeIcon = customCloseIcon || <Null/>;
+    const calendarIcon = customInputIcon || <Null />;
+    const closeIcon = customCloseIcon || <Null />;
     const screenReaderText = screenReaderMessage || phrases.keyboardNavigationInstructions;
     const inputIcon = (showDefaultInputIcon || customInputIcon !== null) && (
       <button

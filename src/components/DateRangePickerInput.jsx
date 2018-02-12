@@ -173,9 +173,9 @@ export default class DateRangePickerInput extends React.Component {
       isRTL,
     } = this.props;
 
-    const inputIcon = customInputIcon || <Null/>;
-    const arrowIcon = customArrowIcon || <Null/>;
-    const closeIcon = customCloseIcon || <Null/>;
+    const calendarIcon = customInputIcon || <Null />;
+    const arrowIcon = customArrowIcon || <Null />;
+    const closeIcon = customCloseIcon || <Null />;
     const screenReaderText = screenReaderMessage || phrases.keyboardNavigationInstructions;
     const inputIcon = (showDefaultInputIcon || customInputIcon !== null) && (
       <button

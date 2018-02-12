@@ -13,6 +13,8 @@ import {
   VERTICAL_SCROLLABLE,
 } from '../../constants';
 
+const Null = () => null;
+
 const propTypes = forbidExtraProps({
   navPrev: PropTypes.node,
   navNext: PropTypes.node,
@@ -68,11 +70,11 @@ export default function DayPickerNavigation(props) {
   let isDefaultNavNext = false;
   if (!navPrevIcon) {
     isDefaultNavPrev = true;
-    navPrevIcon = null;
+    navPrevIcon = <Null />;
   }
   if (!navNextIcon) {
     isDefaultNavNext = true;
-    navNextIcon = null;
+    navNextIcon = <Null />;
   }
 
   const navClassNames = cx('DayPickerNavigation', {
